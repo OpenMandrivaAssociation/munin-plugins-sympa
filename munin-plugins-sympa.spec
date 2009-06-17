@@ -1,6 +1,6 @@
 %define name	munin-plugins-sympa
 %define version	20090617
-%define release	%mkrel 1
+%define release	%mkrel 2
 
 Name:		%{name}
 Version:	%{version}
@@ -28,6 +28,9 @@ rm -rf %{buildroot}
 install -d -m 755 %{buildroot}%{_datadir}/munin/plugins
 install -m 755 sympa_spool %{buildroot}%{_datadir}/munin/plugins
 install -m 755 sympa_stats %{buildroot}%{_datadir}/munin/plugins
+
+perl -pi -e 's|^#!/usr/local/bin/perl|#!%{_bindir}/perl|' \
+    %{buildroot}%{_datadir}/munin/plugins/sympa_stats
 
 %clean
 rm -rf %{buildroot}
