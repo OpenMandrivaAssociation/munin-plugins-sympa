@@ -1,0 +1,18 @@
+diff -Nau --exclude '*~' munin-plugins-sympa/sympa_spool munin-plugins-sympa-fix-spool-script/sympa_spool
+--- munin-plugins-sympa/sympa_spool	2006-06-20 11:00:45.000000000 +0200
++++ munin-plugins-sympa-fix-spool-script/sympa_spool	2009-06-18 14:21:44.000000000 +0200
+@@ -12,7 +12,7 @@
+ #
+ #%# family=auto
+ #%# capabilities=autoconf
+-SYMPA_SPOOL="/opt/sympa/spool/"
++SYMPA_SPOOL="${spool:-/opt/sympa/spool/}"
+ QUEUES="auth bounce digest distribute expire moderation msg outgoing subscribe task tmp topic msg/bad distribute/bad"
+ if [ "$1" = "autoconf" ]; then
+         echo yes
+@@ -27,4 +27,4 @@
+ fi
+ 
+ 
+-for i in $QUEUES ; do  COUNT=`find ${SYMPA_SPOOL}/$i -type f -maxdepth 1|wc -l|tr -d " "`; echo $i.value $COUNT | tr "/" "_" ; done ;
++for i in $QUEUES ; do  COUNT=`find ${SYMPA_SPOOL}/$i -maxdepth 1 -type f|wc -l|tr -d " "`; echo $i.value $COUNT | tr "/" "_" ; done ;
