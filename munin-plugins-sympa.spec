@@ -41,3 +41,22 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %{_datadir}/munin/plugins/*
 
+
+
+%changelog
+* Fri Dec 10 2010 Oden Eriksson <oeriksson@mandriva.com> 20090617-4mdv2011.0
++ Revision: 620421
+- the mass rebuild of 2010.0 packages
+
+* Thu Jun 18 2009 Guillaume Rousse <guillomovitch@mandriva.org> 20090617-3mdv2010.0
++ Revision: 387124
+- fix sympa_spool plugin
+
+* Wed Jun 17 2009 Guillaume Rousse <guillomovitch@mandriva.org> 20090617-2mdv2010.0
++ Revision: 386699
+- fix shellbang
+- import munin-plugins-sympa
+
+
+* Wed Jun 17 2009 Guillaume Rousse <guillomovitch@mandriva.org> 20090617-1mdv2010.0
+- first mandriva package
