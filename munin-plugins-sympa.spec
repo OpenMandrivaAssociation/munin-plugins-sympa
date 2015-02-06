@@ -1,6 +1,6 @@
 %define name	munin-plugins-sympa
 %define version	20090617
-%define release	%mkrel 4
+%define release	5
 
 Name:		%{name}
 Version:	%{version}
